@@ -1,7 +1,3 @@
-. ~/bin/docker
-
-[ -z "$PS1" ] && return
-
 PROMPT_COMMAND='history -a'
 
 HISTCONTROL=ignoredups:ignorespace
@@ -46,7 +42,3 @@ __google_environment(){
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-#PS1="$BLUE\n\u:$RED\w $GREEN(\$(__ruby_version)) $WHITE(\$(__gemset)) $VIOLET\$(__git_branch) ${NORMAL}\$ ${RESET}"
-# PS1="$BRIGHT_BLUE\n\u@$RED\W$VIOLET\$(__git_branch)$GREEN\$(__google_environment)#\A\n${NORMAL}\$ ${RESET}"
-PS1="$BRIGHT_BLUE[\u@\W]$VIOLET\$(__git_branch)$GREEN\n${NORMAL}\$ ${RESET}"
