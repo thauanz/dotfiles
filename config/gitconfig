@@ -1,0 +1,24 @@
+[user]
+  name = Thauan Zatta
+  email = thauanz@gmail.com
+[github]
+  user = thauanz
+[diff]
+  color = auto
+[alias]
+  cam = commit -am
+  co  = checkout
+  su  = submodule update --init
+[core]
+  quotepath = false
+  excludesfile = ~/.gitignore_global
+  mergeoptions = --no-edit
+[branch]
+  autosetuprebase = always
+  rebase = true
+[rerere]
+  enabled = 1
+[push]
+  default = simple
+[color]
+  interactive = true

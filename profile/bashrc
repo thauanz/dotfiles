@@ -1,0 +1,52 @@
+. ~/bin/docker
+
+[ -z "$PS1" ] && return
+
+PROMPT_COMMAND='history -a'
+
+HISTCONTROL=ignoredups:ignorespace
+
+shopt -s histappend
+
+export HISTSIZE=100000
+HISTFILESIZE=2000
+
+shopt -s checkwinsize
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+export HISTCONTROL=ignoreboth
+
+# works with rvm
+__ruby_version() {
+      which ruby | cut -d/ -f6
+}
+
+__gemset() {
+  echo $GEM_PATH | cut -d@ -f2 | cut -d: -f1
+}
+
+__git_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "(git:"${ref#refs/heads/}")"
+}
+
+__google_environment(){
+    project_name=$(gcloud config get-value project 2>/dev/null) || return
+    echo "("${project_name}")"
+}
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+#PS1="$BLUE\n\u:$RED\w $GREEN(\$(__ruby_version)) $WHITE(\$(__gemset)) $VIOLET\$(__git_branch) ${NORMAL}\$ ${RESET}"
+# PS1="$BRIGHT_BLUE\n\u@$RED\W$VIOLET\$(__git_branch)$GREEN\$(__google_environment)#\A\n${NORMAL}\$ ${RESET}"
+PS1="$BRIGHT_BLUE[\u@\W]$VIOLET\$(__git_branch)$GREEN\n${NORMAL}\$ ${RESET}"

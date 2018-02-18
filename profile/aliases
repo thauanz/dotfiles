@@ -1,0 +1,59 @@
+#Projetos
+alias works='cd ~/workfolder'
+alias wolverine='cd /Volumes/wolverine'
+
+alias g='gcloud'
+alias kc='kubectl'
+
+# Processes
+alias tu='top -o cpu' # cpu
+alias tm='top -o vsize' # memory
+alias e='exit'
+alias k9="killall -9"
+
+# RVM
+alias rvmu="rvm use"
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+#rails
+alias r='rails'
+
+# RSpec
+alias rs="rspec"
+alias it="infinity_test"
+
+# Rails any version
+alias rp='touch tmp/restart.txt'
+alias tld='tail -f log/development.log'
+alias tlt='tail -f log/test.log'
+alias tlp='tail -f log/production.log'
+alias tl='tail -f log/*.log'
+
+# Git
+alias ungit="rm -rf .git"
+alias gcl='git clone'
+alias gl='git log'
+alias glp='git log --pretty=oneline'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gcam='git commit -am'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias ga='git add .'
+alias gd='git diff'
+alias gdm='git diff master'
+alias gnp="git-notpushed"
+alias gpl='git pull'
+alias gps='git push'
+alias gph='git push heroku master'
+alias gst='git status'
+alias gru='git reset --hard HEAD'
+
+# Docker
+alias clean_docker='unset ${!DOCKER_*}'
+
