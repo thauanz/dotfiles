@@ -1,24 +1,26 @@
-PROMPT_COMMAND='history -a'
+[ -z "$PS1" ] && return
 
-HISTCONTROL=ignoredups:ignorespace
+# PROMPT_COMMAND='history -a'
 
-shopt -s histappend
+# HISTCONTROL=ignoredups:ignorespace
 
-export HISTSIZE=100000
-HISTFILESIZE=2000
+# shopt -s histappend
 
-shopt -s checkwinsize
+# export HISTSIZE=100000
+# HISTFILESIZE=2000
 
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+# shopt -s checkwinsize
 
-export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-export HISTCONTROL=ignoreboth
+# if [ -x /usr/bin/dircolors ]; then
+#     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#     alias ls='ls --color=auto'
+#     alias grep='grep --color=auto'
+#     alias fgrep='fgrep --color=auto'
+#     alias egrep='egrep --color=auto'
+# fi
+
+# export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# export HISTCONTROL=ignoreboth
 
 # works with rvm
 __ruby_version() {

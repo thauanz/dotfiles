@@ -1,5 +1,4 @@
-. ~/.doftfiles/profile/aliases
-. ~/.doftfiles/profile/color
-. ~/.doftfiles/profile/bashrc
-. ~/.doftfiles/profile/golang
-. ~/.doftfiles/profile/docker
+. ~/.dotfiles/profile/aliases
+. ~/.dotfiles/profile/bashrc
+. ~/.dotfiles/profile/golang
+. ~/.dotfiles/profile/docker
