@@ -16,3 +16,8 @@ let g:syntastic_ruby_rubocop_exec = "/usr/local/bin/rubocop"
 let NERDTreeShowHidden=1
 
 " hi Normal ctermbg=236
+
+augroup vimrc-javascript
+  autocmd!
+  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
+augroup END

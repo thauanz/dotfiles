@@ -11,6 +11,7 @@ tags
 
 # Simplecov
 coverage/
+/exports/
 
 # SASS
 /.sass-cache/
