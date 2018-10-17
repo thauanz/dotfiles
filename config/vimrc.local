@@ -10,8 +10,17 @@ let g:go_auto_sameids = 1
 let g:go_auto_type_info = 1
 let g:go_addtags_transform = "snakecase"
 
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_ruby_rubocop_exec = "/usr/local/bin/rubocop"
+if !empty(glob("./.rubocop.yml"))
+    let g:syntastic_ruby_rubocop_args = "--config ./.rubocop.yml"
+endif
+
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 let NERDTreeShowHidden=1
 
@@ -21,3 +30,5 @@ augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
+
+:set backupcopy=yes
