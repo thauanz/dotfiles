@@ -41,3 +41,22 @@ let g:terraform_fmt_on_save=1
 let g:terraform_align=1
 
 :set backupcopy=yes
+
+" Set spaces for all indentation
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+" Git blame function
+command! -nargs=* Blame call s:GitBlame()
+
+function! s:GitBlame()
+    let cmd = "git blame -w " . bufname("%")
+    let nline = line(".") + 1
+    botright new
+    execute "$read !" . cmd
+    execute "normal " . nline . "gg"
+    execute "set filetype=perl"
+endfunction
+
+nnoremap <leader>gb :Blame
