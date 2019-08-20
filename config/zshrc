@@ -40,3 +40,4 @@ if [[ -s $HOME/.profile ]] ; then source $HOME/.profile ; fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi

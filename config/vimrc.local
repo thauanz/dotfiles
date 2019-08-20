@@ -7,8 +7,11 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_auto_sameids = 1
-let g:go_auto_type_info = 1
+" let g:go_auto_type_info = 1
 let g:go_addtags_transform = "snakecase"
+
+let g:ycm_gocode_binary_path = "$GOPATH/bin/gocode"
+let g:ycm_godef_binary_path = "$GOPATH/bin/godef"
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -30,5 +33,11 @@ augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
+
+
+let g:airline_theme = 'deus'
+
+let g:terraform_fmt_on_save=1
+let g:terraform_align=1
 
 :set backupcopy=yes
