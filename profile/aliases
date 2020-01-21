@@ -1,8 +1,3 @@
-#Projetos
-alias works='cd ~/workfolder'
-alias wolverine='cd /Volumes/wolverine'
-alias out_f='cd /Volumes/wolverine/codes/workfolder/outfit'
-
 alias g='gcloud'
 alias kc='kubectl'
 
