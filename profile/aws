@@ -1,0 +1,6 @@
+awsec2() {
+  TAG_ENV=${1:-production}  
+  aws ec2 describe-instances --filter Name=tag:Env,Values=$TAG_ENV \
+    --query 'Reservations[].Instances[].[Placement.AvailabilityZone,State.Name,InstanceId,PrivateIpAddress,InstanceType,join(`,`,Tags[?Key==`Name`].Value),join(`,`,Tags[?Key==`Env`].Value), join(`,`,Tags[?Key==`State`].Value)]' \
+    --output table
+}
