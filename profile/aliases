@@ -1,5 +1,6 @@
 alias g='gcloud'
 alias kc='kubectl'
+alias tf='terraform'
 
 # Processes
 alias tu='top -o cpu' # cpu
