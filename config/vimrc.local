@@ -1,5 +1,9 @@
 set mouse=a
 set ttymouse=xterm2
+set clipboard=unnamed,unnamedplus                               " set clipboard
+set showbreak=↪                                                 " show arrow at breaking
+set expandtab                                                   " convert tabs to spaces
+
 
 let g:go_fmt_command = "gofmt"
 let g:go_fmt_autosave = 1

@@ -1,6 +1,31 @@
 awsec2() {
-  TAG_ENV=${1:-production}  
+  TAG_ENV=${1:-production}
   aws ec2 describe-instances --filter Name=tag:Env,Values=$TAG_ENV \
     --query 'Reservations[].Instances[].[Placement.AvailabilityZone,State.Name,InstanceId,PrivateIpAddress,InstanceType,join(`,`,Tags[?Key==`Name`].Value),join(`,`,Tags[?Key==`Env`].Value), join(`,`,Tags[?Key==`State`].Value)]' \
     --output table
+}
+
+awsec2app() {
+  TAG_ENV=${1:-production}
+  aws ec2 describe-instances --filter Name=tag:Env,Values=$TAG_ENV Name=tag:Type,Values=applications \
+    --query 'Reservations[].Instances[].[Placement.AvailabilityZone,State.Name,InstanceId,PrivateIpAddress,InstanceType,join(`,`,Tags[?Key==`Name`].Value),join(`,`,Tags[?Key==`Env`].Value), join(`,`,Tags[?Key==`State`].Value)]' \
+    --output table
+}
+
+awsec2appgreen() {
+  TAG_ENV=${1:-production}
+  aws ec2 describe-instances --filter Name=tag:Env,Values=$TAG_ENV Name=tag:Type,Values=applications Name=tag:State,Values=green \
+    --query 'Reservations[].Instances[].[Placement.AvailabilityZone,State.Name,InstanceId,PrivateIpAddress,InstanceType,join(`,`,Tags[?Key==`Name`].Value),join(`,`,Tags[?Key==`Env`].Value), join(`,`,Tags[?Key==`State`].Value)]' \
+    --output table
+}
+
+awsec2appblue() {
+  TAG_ENV=${1:-production}
+  aws ec2 describe-instances --filter Name=tag:Env,Values=$TAG_ENV Name=tag:Type,Values=applications Name=tag:State,Values=blue \
+    --query 'Reservations[].Instances[].[Placement.AvailabilityZone,State.Name,InstanceId,PrivateIpAddress,InstanceType,join(`,`,Tags[?Key==`Name`].Value),join(`,`,Tags[?Key==`Env`].Value), join(`,`,Tags[?Key==`State`].Value)]' \
+    --output table
+}
+
+awsBlueIP() {
+  aws ec2 describe-instances --filter Name=tag:Env,Values=$TAG_ENV Name=tag:Type,Values=applications Name=tag:State,Values=blue | jq -r '.Reservations[].Instances[].PrivateIpAddress'
 }
